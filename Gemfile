@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.8'
 
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'faker'
 
 
 # Use sqlite3 as the database for Active Record
