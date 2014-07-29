@@ -1,5 +1,22 @@
 require 'faker'
 
+# Create users
+5.times do
+	user = User.new(
+    name:     Faker::Name.name,
+    email:    Faker::Internet.email,
+    password: Faker::Lorem.characters(10)
+  )
+  user.skip_confirmation!
+  user.save
+end
+users = User.all
+
+User.first.update_attributes(
+  email: 'youremail.com',
+  password: 'helloworld',
+)
+
 # Create Posts
 50.times do 
 	Post.create(
@@ -18,8 +35,10 @@ posts = Post.all
 end	
 
 puts "Seed finished"
+puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+
 
 
 # This file should contain all the record creation needed to seed the database with its default values.
