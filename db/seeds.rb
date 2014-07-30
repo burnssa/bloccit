@@ -20,6 +20,7 @@ User.first.update_attributes(
 # Create Posts
 50.times do 
 	Post.create(
+		user: 	users.sample,
 		title: 	Faker::Lorem.sentence,
 		body: 	Faker::Lorem.paragraph
 		)	
@@ -33,6 +34,11 @@ posts = Post.all
 		body: Faker::Lorem.paragraph
 		)
 end	
+
+User.first.update_attributes(
+  email: 'youremail.com',
+  password: 'helloworld',
+)
 
 puts "Seed finished"
 puts "#{User.count} users created"

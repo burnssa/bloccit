@@ -10,3 +10,4 @@
 
 SENDGRID_PASSWORD: exAmplePa$$
 SENDGRID_USERNAME: myspecialusername
+DEVISE_SECRET_KEY: sekrit123456

@@ -7,6 +7,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'faker'
 gem 'devise'
 gem 'figaro'
+gem 'pundit'
 
 
 # Use sqlite3 as the database for Active Record
