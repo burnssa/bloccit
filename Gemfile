@@ -8,6 +8,7 @@ gem 'faker'
 gem 'devise'
 gem 'figaro'
 gem 'pundit'
+gem 'simple_form'
 
 
 # Use sqlite3 as the database for Active Record
