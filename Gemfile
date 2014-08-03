@@ -10,7 +10,9 @@ gem 'figaro'
 gem 'pundit'
 gem 'simple_form'
 gem 'redcarpet'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 # Use sqlite3 as the database for Active Record
  group :production do

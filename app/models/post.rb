@@ -19,10 +19,6 @@ class Post < ActiveRecord::Base
 		render_as_markdown body
 	end	
 
-	def markdown_name
-		render_as_markdown name
-	end	
-
 	private
 
 	def render_as_markdown(text)
