@@ -9,6 +9,7 @@ gem 'devise'
 gem 'figaro'
 gem 'pundit'
 gem 'simple_form'
+gem 'redcarpet'
 
 
 # Use sqlite3 as the database for Active Record
