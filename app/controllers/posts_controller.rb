@@ -3,11 +3,13 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
+    @comments = @post.comments.paginate(page: params[:page], per_page: 10)
   end
 
   def new
     @post = Post.new
     @topic = Topic.find(params[:topic_id])
+    @comments = @post
     authorize @post
   end
 
@@ -21,7 +23,7 @@ class PostsController < ApplicationController
   		flash[:notice] = "Post was saved."
   		redirect_to [@topic, @post]
   	else
-  		flash[:error] = "There was an error saving the post. Please try again."
+  		flash[:error] = "There was an error saving the post. It may not have been long enough. Please try again."
   		render :new
   	end
   end
@@ -49,7 +51,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :image_cache)
   end
 
 end

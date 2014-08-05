@@ -1,0 +1,14 @@
+<h1>Comments</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <% @comments.each do |comment| %>
+      <div class="media">     
+        <small>
+          <%= comment.body %>
+        </small>
+      </div>
+    <% end %>
+      <%= will_paginate @comments %>
+    </div>
+</div>
