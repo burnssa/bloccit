@@ -27,4 +27,5 @@ describe VotesController do
 		  }.to change{ @post.down_votes }.by 1
 		end
 	end
+	
 end
