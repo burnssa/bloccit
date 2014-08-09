@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :votes
+  
   mount_uploader :avatar, AvatarUploader
 
   def role?(base_role)
