@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
     @comment = current_user.comments.build(comment_params)
     @comment.post = @post
-    #authorize @comment
+    authorize @comment
     Rails.logger.info ">>>>>>>>>  #{@comment.inspect}"
     Rails.logger.info  ">>>>>>>> valid? #{@comment.valid?}"
 
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   end 
 
    def destroy
-     @topic = @post.topic
+     @topic = Topic.find(params[:topic_id])
      @post = @topic.posts.find(params[:post_id])
      @comment = @post.comments.find(params[:id])
  
