@@ -3,8 +3,8 @@ module TestFactories
     post_options = { 
       title: 'Post title', 
       body: 'Post bodies must be pretty long.', 
-      topic: Topic.create(name: 'Topic name'), 
-      user: authenticated_user 
+      topic: Topic.create(name: 'Topic name'),
+      user: authenticated_user
     }.merge(options)
     Post.create(post_options)
   end
@@ -15,5 +15,11 @@ module TestFactories
     user.skip_confirmation!
     user.save
     user
+  end
+
+  def comment_without_email(user, options={})
+    @comment = Comment.new(user: user, body: "A Comment")
+    allow(@comment).to receive(:send_favorite_emails)
+    @comment.save
   end
 end
