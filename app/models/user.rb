@@ -20,6 +20,6 @@ class User < ActiveRecord::Base
   end
 
   def voted(post) 
-    post.votes.first ||= nil
+    post.votes.first || nil
   end
 end
