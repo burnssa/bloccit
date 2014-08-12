@@ -11,7 +11,7 @@ class Vote < ActiveRecord::Base
  	end
 
  	def down_vote?
- 		value == -1
+ 		value == (-1)
  	end
 
  	private
