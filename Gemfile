@@ -16,6 +16,9 @@ gem 'fog'
 gem 'will_paginate', '3.0.5'
 gem 'rspec-rails'
 gem 'newrelic_rpm'
+gem 'database_cleaner'
+gem 'factory_girl_rails', '~> 4.0'
+
 
 # Use sqlite3 as the database for Active Record
  group :production do
