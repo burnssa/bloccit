@@ -3,11 +3,12 @@ class CommentsController < ApplicationController
 
 	def create
   	@post = Post.find(params[:post_id])
-    @topic = @post.topic
     @comments = @post.comments
 
     @comment = current_user.comments.build(comment_params)
     @comment.post = @post
+    @new_comment = Comment.new
+
     authorize @comment
     Rails.logger.info ">>>>>>>>>  #{@comment.inspect}"
     Rails.logger.info  ">>>>>>>> valid? #{@comment.valid?}"
@@ -17,7 +18,10 @@ class CommentsController < ApplicationController
   	else
   		flash[:error] = "There was a #{@comment.body} error saving the comment. Please try again."
   	end
-    redirect_to [@topic, @post]
+    
+    respond_with(@comment) do |format|
+        format.html { redirect_to [@post.topic, @post]}
+    end
   end 
 
    def destroy

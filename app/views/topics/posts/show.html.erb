@@ -1,4 +1,4 @@
-	<div class="row">
+  <div class="row">
 	  <div class="col-md-8">
 	  	<%= render partial: 'votes/voter', locals: { post: @post } %>
 	  	<h1><%= @post.markdown_title %></h1>
@@ -9,9 +9,6 @@
      	  </small>
 	    <p><%= @post.markdown_body %></p>
 	    <div><%= image_tag(@post.image.thumb.url) if @post.image? %></div>
-	    <% if current_user %>
-	    	<%= render partial: '/comments/form', object: @comments %>
-	  	<% end %>
 	  </div>
 	  <div class="col-md-4">
  			<% if policy(@post).edit? %>
@@ -32,7 +29,13 @@
      	</small>
    	</div>
    	<%= render partial: 'favorites/favorite', locals: { post: @post } %>
-
 		</div>
 	</div>
-<%= render partial: '/comments/comment', object: @comments %>
+
+  <h2>Comments</h2>
+ <div class='js-comments'>
+  <%= render partial: 'comments/comment', collection: @comments %>
+ </div>
+ <div class='new-comment'>
+  <%= render 'comments/form' %>
+ </div>
