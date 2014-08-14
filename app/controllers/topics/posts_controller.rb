@@ -3,6 +3,7 @@ class Topics::PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
+    @user = @post.user
     @comments = @post.comments.paginate(page: params[:page], per_page: 10)
     authorize @topic
   end

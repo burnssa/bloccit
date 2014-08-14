@@ -18,6 +18,7 @@ gem 'rspec-rails'
 gem 'newrelic_rpm'
 gem 'database_cleaner'
 gem 'factory_girl_rails', '~> 4.0'
+gem 'pry-rails'
 
 
 # Use sqlite3 as the database for Active Record
