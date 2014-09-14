@@ -23,12 +23,16 @@ users = User.all
 
 # Create Posts
 50.times do 
-	Post.create(
+	post = Post.create(
 		user: 	users.sample,
 		topic: 	topics.sample,
 		title: 	Faker::Lorem.sentence,
 		body: 	Faker::Lorem.paragraph
 		)	
+
+  post.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
+  post.create_vote
+  post.update_rank
 end
 posts = Post.all
 	
@@ -36,6 +40,7 @@ posts = Post.all
 100.times do 
 	Comment.create(
 		post: posts.sample,
+    user: users.sample,
 		body: Faker::Lorem.paragraph
 		)
 end	

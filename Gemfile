@@ -8,6 +8,17 @@ gem 'faker'
 gem 'devise'
 gem 'figaro'
 gem 'pundit'
+gem 'simple_form'
+gem 'redcarpet'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'will_paginate', '3.0.5'
+gem 'rspec-rails'
+gem 'newrelic_rpm'
+gem 'database_cleaner'
+gem 'factory_girl_rails', '~> 4.0'
+gem 'pry-rails'
 
 
 # Use sqlite3 as the database for Active Record
@@ -18,6 +29,12 @@ gem 'pundit'
  
  group :development do
    gem 'sqlite3'
+   gem 'binding_of_caller'
+   gem 'better_errors'
+ end
+
+ group :test do
+   gem 'capybara'
  end
 
 # Use SCSS for stylesheets

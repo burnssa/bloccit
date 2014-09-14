@@ -1,7 +1,7 @@
 class TopicPolicy < ApplicationPolicy
 
 def index?
-	true
+		true
 	end
 
 	def create?
@@ -11,4 +11,13 @@ def index?
 	def update?
 		create?
 	end
+
+	def destroy?
+		update?
+	end
+
+	def show?
+		record.public? || user.present?
+	end
+
 end
